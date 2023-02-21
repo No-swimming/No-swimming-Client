@@ -13,6 +13,7 @@ export const OutLetContainer = styled.div`
 
 export const Container = styled.div`
   background-color: white;
+  z-index: 1000000;
   height: 70px;
   width: 100vw;
   position: fixed;
