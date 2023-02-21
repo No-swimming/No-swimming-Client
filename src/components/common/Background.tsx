@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { BookBackground } from "../assets";
+import { BookBackground } from "../../assets";
 
 type PropType = {
   children: ReactNode;
