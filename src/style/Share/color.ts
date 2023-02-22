@@ -11,9 +11,3 @@ export const Gray = {
   25: "BFBFBF",
   10: "E6E6E6",
 };
-
-export const Google = {
-  green: "34A853",
-  Y: "FBBC05",
-  blue: "4285F4",
-};
