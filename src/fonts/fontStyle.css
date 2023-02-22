@@ -13,3 +13,7 @@
     font-weight: 700;
     src: url("LINESeedKR-Bd.woff2") format("woff2");
 }
+
+*{
+    font-family: LineSeed;
+}
