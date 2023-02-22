@@ -13,7 +13,7 @@ export const ButtonBlack = styled.button`
     padding: 8px 16px;
 
     &:hover{
-        background-color: hsl(0, 0%, 10%);
+        filter: brightness(150%);
         transition: 100ms;   
     }
     &:active{
@@ -34,7 +34,7 @@ export const ButtonBlackTrans = styled.button`
     padding: 8px 16px;
 
     &:hover{
-        background-color: hsla(0, 0%, 0%, 0.6);
+        filter: brightness(150%);
         transition: 100ms;   
     }
     &:active{
@@ -55,7 +55,7 @@ export const ButtonLight = styled.button`
     padding: 8px 16px;
 
     &:hover{
-        background-color: hsla(0, 0%, 85%, 1);
+        filter: brightness(90%);
         transition: 100ms;   
     }
     &:active{
