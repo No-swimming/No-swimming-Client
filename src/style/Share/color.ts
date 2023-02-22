@@ -1,5 +1,4 @@
 export const Basic = {
-  white: "ffffff",
   black0: "1a1a1a",
   /** rgba 값 */
   popupBG: "0,0,0,0.5",
