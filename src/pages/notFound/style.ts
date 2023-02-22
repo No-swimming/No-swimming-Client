@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Gray } from "../../style/Share/color";
+import { Gray } from "../../style/color";
 
 export const Container = styled.div`
   width: 100vw;
