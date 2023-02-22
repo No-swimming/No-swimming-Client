@@ -1,7 +1,6 @@
 export const Basic = {
   black0: "#1a1a1a",
-  /** rgba 값 */
-  popupBG: "#00000080",
+  white : "#ffffff",
   RED: "#FF0000",
 };
 
@@ -11,3 +10,8 @@ export const Gray = {
   25: "#BFBFBF",
   10: "#E6E6E6",
 };
+
+export const Transparent = {
+  Black50 : "#00000080",
+  White50 : "#ffffff80",
+}
