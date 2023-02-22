@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Basic } from "../../../style/Share/color";
+import { Transparent } from "../../../style/Share/color";
 
 export const AllPage = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ export const MenuContent = styled(Link)`
   display: flex;
   gap: 11px;
   text-decoration: none;
-  color: rgba(${Basic.popupBG});
+  color: rgba(${Transparent.Black50});
   transition: 2s;
   > p {
     @media (max-width: 1191px) {
