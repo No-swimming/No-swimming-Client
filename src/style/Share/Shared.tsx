@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Gray, Basic, Transparent } from "./color";
 
 export const ButtonBlack = styled.button`
-    color: white;
-    background-color: black;
+    color: ${Basic.white};
+    background-color: ${Basic.black0};
     border: none;
     cursor: pointer;
 
@@ -22,8 +23,8 @@ export const ButtonBlack = styled.button`
 `
 
 export const ButtonBlackTrans = styled.button`
-    color: white;
-    background-color: hsla(0, 0%, 0%, 0.5);
+    color: ${Basic.white};
+    background-color: ${Transparent.Black50};
     border: none;
     cursor: pointer;
 
@@ -43,8 +44,8 @@ export const ButtonBlackTrans = styled.button`
 `
 
 export const ButtonLight = styled.button`
-    color: black;
-    background-color: hsla(0, 0%, 95%, 1);
+    color: ${Basic.black0};
+    background-color: ${Gray.Elevated0};
     border: none;
     cursor: pointer;
 
