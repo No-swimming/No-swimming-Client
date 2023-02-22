@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Basic } from "../../../style/color";
+import { Basic } from "../../../style/Share/color";
 
 export const AllPage = styled.div`
   display: flex;
