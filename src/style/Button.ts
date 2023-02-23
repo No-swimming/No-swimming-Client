@@ -8,7 +8,6 @@ type ButtonColorType = {
 }
 
 export const Button = styled.button`
-
     border: none;
     cursor: pointer;
 
@@ -60,6 +59,9 @@ export const Button = styled.button`
                 transition: 100ms;
             }
         `
-        : null
+        :css`
+            color: ${Basic.white};
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);;
+        `
     }
 `
