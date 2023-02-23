@@ -1,9 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Gray, Basic, Transparent } from "./color";
 
-export const ButtonBlack = styled.button`
-    color: ${Basic.white};
-    background-color: ${Basic.black0};
+type ButtonColorType = {
+    Black? : boolean;
+    BlackTrans? : boolean;
+    Light? : boolean;
+}
+
+export const Button = styled.button`
+
     border: none;
     cursor: pointer;
 
@@ -11,55 +16,50 @@ export const ButtonBlack = styled.button`
 
     border-radius: 888px;
     padding: 8px 16px;
+    
+    ${(props:ButtonColorType) => 
+        props.Black ? 
+        css`
+            color: ${Basic.white};
+            background-color: ${Basic.black0};
 
-    &:hover{
-        filter: brightness(150%);
-        transition: 100ms;   
-    }
-    &:active{
-        filter: brightness(75%);
-        transition: 100ms;
-    }
-`
+            &:hover{
+                filter: brightness(150%);
+                transition: 100ms;   
+            }
+            &:active{
+                filter: brightness(75%);
+                transition: 100ms;
+            }
+        `
+        : props.BlackTrans ?
+        css`
+            color: ${Basic.white};
+            background-color: ${Transparent.Black50};
 
-export const ButtonBlackTrans = styled.button`
-    color: ${Basic.white};
-    background-color: ${Transparent.Black50};
-    border: none;
-    cursor: pointer;
+            &:hover{
+                filter: brightness(150%);
+                transition: 100ms;   
+            }
+            &:active{
+                filter: brightness(75%);
+                transition: 100ms;
+            }
+        `
+        : props.Light ?
+        css`
+            color: ${Basic.black0};
+            background-color: ${Gray.Elevated0};
 
-    font-size: 20px;
-
-    border-radius: 888px;
-    padding: 8px 16px;
-
-    &:hover{
-        filter: brightness(150%);
-        transition: 100ms;   
-    }
-    &:active{
-        filter: brightness(75%);
-        transition: 100ms;
-    }
-`
-
-export const ButtonLight = styled.button`
-    color: ${Basic.black0};
-    background-color: ${Gray.Elevated0};
-    border: none;
-    cursor: pointer;
-
-    font-size: 20px;
-
-    border-radius: 888px;
-    padding: 8px 16px;
-
-    &:hover{
-        filter: brightness(90%);
-        transition: 100ms;   
-    }
-    &:active{
-        filter: brightness(75%);
-        transition: 100ms;
+            &:hover{
+                filter: brightness(90%);
+                transition: 100ms;   
+            }
+            &:active{
+                filter: brightness(75%);
+                transition: 100ms;
+            }
+        `
+        : null
     }
 `
