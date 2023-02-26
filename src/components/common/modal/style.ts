@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Basic } from "../../../style/color";
+import { Transparent } from "../../../style/color";
 
 export const Container = styled.div`
   width: 100vw;
@@ -29,5 +29,5 @@ export const BackDrop = styled.div`
   position: fixed;
   top: 0;
   z-index: 9999;
-  background-color: rgba(${Basic.popupBG});
+  background-color: rgba(${Transparent.Black50});
 `;
