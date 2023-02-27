@@ -1,13 +1,18 @@
 import { MainInputContainer } from "./style";
 
-function Input(){
+type propType = {
+    placeholder: string;
+    value?: string;
+    isPassword?: boolean;
+}
+
+function Input({placeholder, value, isPassword, }:propType){
     return(
         <div>
             <MainInputContainer >
-                abc
-                <input/>
+                {placeholder}
+                <input value={value} type={isPassword ? "password" : "text"} />
             </MainInputContainer>
-            
         </div>
     )
 }
