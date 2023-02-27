@@ -1,10 +1,12 @@
+import { MainInputContainer } from "./style";
+
 function Input(){
     return(
         <div>
-            <label >
+            <MainInputContainer >
                 abc
                 <input/>
-            </label>
+            </MainInputContainer>
             
         </div>
     )
