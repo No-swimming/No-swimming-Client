@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Basic } from "../../../style/color";
+import { Transparent } from "../../../style/color";
 
 export const AllPage = styled.div`
   display: flex;
@@ -13,6 +13,7 @@ export const OutLetContainer = styled.div`
 
 export const Container = styled.div`
   background-color: white;
+  z-index: 1000000;
   height: 70px;
   width: 100vw;
   position: fixed;
@@ -50,7 +51,7 @@ export const MenuContent = styled(Link)`
   display: flex;
   gap: 11px;
   text-decoration: none;
-  color: rgba(${Basic.popupBG});
+  color: rgba(${Transparent.Black50});
   transition: 2s;
   > p {
     @media (max-width: 1191px) {
