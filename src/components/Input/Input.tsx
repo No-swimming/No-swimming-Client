@@ -8,12 +8,10 @@ type propType = {
 
 function Input({placeholder, value, isPassword, }:propType){
     return(
-        <div>
             <MainInputContainer >
                 {placeholder}
                 <input value={value} type={isPassword ? "password" : "text"} />
             </MainInputContainer>
-        </div>
     )
 }
 
