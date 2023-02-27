@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Gray } from "../../../style/color";
+import { Gray } from "../../style/color";
 import { Search32Regular } from "@fluentui/react-icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
