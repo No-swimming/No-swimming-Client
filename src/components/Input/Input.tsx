@@ -4,13 +4,14 @@ type propType = {
     placeholder: string;
     value?: string;
     isPassword?: boolean;
+    onChange?: any;
 }
 
-function Input({placeholder, value, isPassword, }:propType){
+function Input({placeholder, value, isPassword, onChange}:propType){
     return(
             <MainInputContainer >
                 {placeholder}
-                <input value={value} type={isPassword ? "password" : "text"} />
+                <input value={value} type={isPassword ? "password" : "text"} onChange={onChange} />
             </MainInputContainer>
     )
 }
