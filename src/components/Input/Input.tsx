@@ -1,6 +1,6 @@
 import { Eye24Regular, EyeOff24Regular } from "@fluentui/react-icons";
 import { useState } from "react";
-import { MainInputContainer } from "./style";
+import * as s from "./style";
 
 type propType = {
     placeholder: string;
@@ -21,13 +21,13 @@ function Input({placeholder, value, isPassword, onChange}:propType){
     }
 
     return(
-            <MainInputContainer >
-                {placeholder}
-                <div>
+        <div>
+            <s.MainInputContainer >{placeholder}</s.MainInputContainer>
+            <s.InputBox>
                     <input value={value} type={isPassword && isVisable===false ? "password" : "text"} onChange={onChange} />
                     {isPassword ? <PasswordEye click={pwdVisableSwitch} eyeOn={isVisable}/> : null}
-                </div>
-            </MainInputContainer>
+            </s.InputBox>
+        </div>
     )
 }
 
