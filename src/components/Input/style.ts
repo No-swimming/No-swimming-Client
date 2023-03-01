@@ -24,6 +24,7 @@ export const InputBox = styled.div`
   &>input{
     background: none;
     border: none;
+    outline: none;
 
     font-size: 20px;
     width: -webkit-fill-available;
