@@ -7,6 +7,7 @@ type propType = {
     value?: string;
     isPassword?: boolean;
     onChange?: ()=>void;
+    id: string;
 }
 
 type passwordEyeType = {
@@ -14,7 +15,7 @@ type passwordEyeType = {
     eyeOn?: boolean;
 }
 
-function Input({placeholder, value, isPassword, onChange}:propType){
+function Input({placeholder, value, isPassword, onChange, id}:propType){
     const [isVisable, setVisable] = useState(false);
     function pwdVisableSwitch(){
         setVisable(!isVisable);
@@ -22,9 +23,9 @@ function Input({placeholder, value, isPassword, onChange}:propType){
 
     return(
         <div>
-            <s.MainInputContainer >{placeholder}</s.MainInputContainer>
+            <s.MainInputContainer htmlFor={id}>{placeholder}</s.MainInputContainer>
             <s.InputBox>
-                    <input value={value} type={isPassword && isVisable===false ? "password" : "text"} onChange={onChange} />
+                    <input id={id} value={value} type={isPassword && isVisable===false ? "password" : "text"} onChange={onChange} />
                     {isPassword ? <PasswordEye click={pwdVisableSwitch} eyeOn={isVisable}/> : null}
             </s.InputBox>
         </div>
