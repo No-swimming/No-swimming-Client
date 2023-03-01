@@ -3,6 +3,7 @@ import { Basic, Gray } from "../../style/color";
 
 export const MainInputContainer = styled.label`
   color: ${Gray[50]};
+  padding-left: 4px;
 `;
 
 export const InputBox = styled.div`
