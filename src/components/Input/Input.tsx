@@ -1,6 +1,7 @@
 import { Eye24Regular, EyeOff24Regular } from "@fluentui/react-icons";
 import { useState } from "react";
 import * as s from "./style";
+import { Gray } from "../../style/color";
 
 type propType = {
     placeholder: string;
@@ -35,7 +36,7 @@ function Input({placeholder, value, isPassword, onChange, id}:propType){
 function PasswordEye({eyeOn, click}:passwordEyeType){
     return(
         <button onClick={click}>
-            {eyeOn ? <EyeOff24Regular /> : <Eye24Regular />}
+            {eyeOn ? <EyeOff24Regular color={Gray[50]}/> : <Eye24Regular color={Gray[50]} />}
         </button>
     )
 }
