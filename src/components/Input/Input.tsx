@@ -34,11 +34,9 @@ function Input({placeholder, value, isPassword, onChange, id}:propType){
 
 function PasswordEye({eyeOn, click}:passwordEyeType){
     return(
-        <>
-            <button onClick={click}>
-                {eyeOn ? <EyeOff24Regular /> : <Eye24Regular />}
-            </button>
-        </>
+        <button onClick={click}>
+            {eyeOn ? <EyeOff24Regular /> : <Eye24Regular />}
+        </button>
     )
 }
 
