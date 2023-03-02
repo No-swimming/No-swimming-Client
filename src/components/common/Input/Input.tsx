@@ -1,7 +1,7 @@
 import { Eye24Regular, EyeOff24Regular } from "@fluentui/react-icons";
 import { useState } from "react";
 import * as s from "./style";
-import { Gray } from "../../style/color";
+import { Gray } from "../../../style/color";
 
 type propType = {
     placeholder: string;

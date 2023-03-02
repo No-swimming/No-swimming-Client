@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Basic, Gray } from "../../style/color";
+import { Basic, Gray } from "../../../style/color";
 
 export const MainInputContainer = styled.label`
   color: ${Gray[50]};

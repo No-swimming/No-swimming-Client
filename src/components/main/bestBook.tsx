@@ -2,7 +2,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Gray } from "../../../style/color";
+import { Gray } from "../../style/color";
 
 const BESTBOOK_KEY = process.env.REACT_APP_BESTBOOK_KEY;
 const corsUrl = "http://monotype.iptime.org:10888/";
