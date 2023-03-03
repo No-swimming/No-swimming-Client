@@ -7,14 +7,17 @@ type PropsType = {
   width?: string;
   height?: string;
   padding?: string;
+  display?: string;
+  justifyContent?: string;
+  gap?: string;
 }
 
-const Modal = ({ children, onClickToggleModal, width, height, padding }: PropsType) => {
+const Modal = ({ children, onClickToggleModal, width, height, padding, display, justifyContent, gap }: PropsType) => {
 
 
   return (
     <_.Container>
-      <_.ChildrenContainer width={width} height={height} padding={padding}>
+      <_.ChildrenContainer width={width} height={height} padding={padding} display={display} justifyContent={justifyContent} gap={gap}>
         {children}
       </_.ChildrenContainer>
       <_.BackDrop onClick={(e: React.MouseEvent) => {
