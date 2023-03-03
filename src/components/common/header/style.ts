@@ -51,9 +51,14 @@ export const MenuContent = styled(Link)`
   display: flex;
   gap: 11px;
   text-decoration: none;
+<<<<<<< Updated upstream
   color: rgba(${Transparent.Black50});
   transition: 2s;
+=======
+  color: ${Transparent.Black50};
+>>>>>>> Stashed changes
   > p {
+    transition: all 0.2s ease-in-out;
     @media (max-width: 1191px) {
       display: none;
     }
@@ -61,7 +66,7 @@ export const MenuContent = styled(Link)`
   }
   > :hover {
     color: black;
-    font-weight: bold;
+    font-weight: 600;
   }
 `;
 
