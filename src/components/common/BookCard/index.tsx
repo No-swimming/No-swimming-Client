@@ -3,6 +3,7 @@ import axios from 'axios';
 import { average } from 'color.js';
 import { useState } from 'react';
 import * as _ from './style';
+import { Button } from '../Button';
 
 type cardType = {
     hearted?: boolean;
