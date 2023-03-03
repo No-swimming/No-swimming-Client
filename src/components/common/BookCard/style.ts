@@ -73,20 +73,6 @@ export const CardBody = styled.p`
     opacity: 0.5;
 `;
 
-export const ButtonBlack = styled.button`
-    display:flex;
-
-    padding: 8px 16px;
-    background: ${Transparent.White50};
-    border-radius: 99px;
-    font-size: 20px;
-    color: ${Basic.white};
-    border: none;
-    &.icon{
-        padding: 8px 8px;
-    }
-`;
-
 export const ButtonIcon = styled.button`
     background: none;
     border: none;
