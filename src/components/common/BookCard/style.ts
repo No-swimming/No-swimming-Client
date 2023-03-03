@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Basic, Transparent } from "../../../style/color";
 
 export const CardBg = styled.div<{backgroud:string}>`
     display:flex;
@@ -7,7 +8,7 @@ export const CardBg = styled.div<{backgroud:string}>`
     box-sizing: border-box;
     border-radius: 12px;
     background: ${props => props.backgroud};
-    color: #FFFFFF;
+    color: ${Basic.white};
     width: 650px;
     height: 200px;
     & > div > div{
@@ -47,7 +48,7 @@ export const CardTitle = styled.p`
     font-weight: 700;
     font-size: 24px;
     &.trans{
-        color: #0000007f;
+        color: ${Transparent.White50};
     }
 `;
 
@@ -55,7 +56,7 @@ export const CardTitleMini = styled.p`
     font-weight: 700;
     font-size: 20px;
     &.trans{
-        color: #0000007f;
+        color: ${Transparent.White50};
     }
     &.lite{
         font-weight: 400;
@@ -76,10 +77,10 @@ export const ButtonBlack = styled.button`
     display:flex;
 
     padding: 8px 16px;
-    background: #0000007f;
+    background: ${Transparent.White50};
     border-radius: 99px;
     font-size: 20px;
-    color: #FFFFFF;
+    color: ${Basic.white};
     border: none;
     &.icon{
         padding: 8px 8px;
@@ -97,7 +98,7 @@ export const InfoTransBlack = styled.div`
     height:100vh;
     z-index: 888;
     position: absolute;
-    background-color:#0000007F;
+    background-color:${Transparent.White50};
 `
 
 export const InfoCardBG = styled.div`
@@ -106,7 +107,7 @@ export const InfoCardBG = styled.div`
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: #ffffff;
+    background-color: ${Basic.white};
 
     padding: 16px;
     box-sizing: border-box;
