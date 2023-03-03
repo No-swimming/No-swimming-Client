@@ -51,15 +51,15 @@ function CardLarge({hearted, data}:cardType){
                 <_.CardTitle className='trans'>{data.author} | {data.pubdate.substr(0,4)}</_.CardTitle>
                 <_.CardBody>{data.description.substr(0,65)+"..."}</_.CardBody>
                 <div>
-                    <_.ButtonBlack className='icon'>
+                    <Button BlackTrans className='icon'>
                         <CardHeart onClick="afsd" hearted={hearted}/>
-                    </_.ButtonBlack>
-                    <_.ButtonBlack>
+                    </Button>
+                    <Button BlackTrans>
                         읽은 책에 추가
-                    </_.ButtonBlack>
-                    <_.ButtonBlack>
+                    </Button>
+                    <Button BlackTrans>
                         독서록 작성
-                    </_.ButtonBlack>
+                    </Button>
                 </div>
             </div>
         </_.CardBg>
@@ -108,10 +108,10 @@ function BookInfoModal({hearted, data}:cardType){
                         <_.CardTitleMini className='trans lite'>{data.description}</_.CardTitleMini>
                     </span>
                     <div>
-                        <_.ButtonBlack>(하트)</_.ButtonBlack>
-                        <_.ButtonBlack>읽음으로 표시</_.ButtonBlack>
-                        <_.ButtonBlack>독서록 작성</_.ButtonBlack>
-                        <_.ButtonBlack>네이버 도서에서 보기</_.ButtonBlack>
+                        <Button BlackTrans>(하트)</Button>
+                        <Button BlackTrans>읽음으로 표시</Button>
+                        <Button BlackTrans>독서록 작성</Button>
+                        <Button BlackTrans>네이버 도서에서 보기</Button>
                     </div>
                 </_.InfoCardInnerContainer>
             </_.InfoCardBG>
