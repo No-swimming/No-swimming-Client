@@ -48,7 +48,7 @@ function CardLarge({hearted, data}:cardType){
             <img src={data.image} onLoad={getAverage} />
             <div>
                 <_.CardTitle>{data.title}</_.CardTitle>
-                <_.CardTitle className='trans'>{data.author} | {data.pubdate.substr(0,4)}</_.CardTitle>
+                <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
                 <_.CardBody>{data.description.substr(0,65)+"..."}</_.CardBody>
                 <div>
                     <Button BlackTrans className='icon'>
