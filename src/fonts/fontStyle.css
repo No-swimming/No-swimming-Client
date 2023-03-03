@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "LineSeed";
+    font-weight: 100;
+    src: url("LINESeedKR-Th.woff2") format("woff2");
+}
+@font-face {
+    font-family: "LineSeed";
+    font-weight: 500;
+    src: url("LINESeedKR-Rg.woff2") format("woff2");
+}
+@font-face {
+    font-family: "LineSeed";
+    font-weight: 700;
+    src: url("LINESeedKR-Bd.woff2") format("woff2");
+}
+
+*{
+    font-family: LineSeed;
+}

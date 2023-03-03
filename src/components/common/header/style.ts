@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Basic, Transparent } from "../../../style/color";
 
+
 export const AllPage = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,6 +14,7 @@ export const OutLetContainer = styled.div`
 
 export const Container = styled.div`
   background-color: white;
+  z-index: 1000000;
   height: 70px;
   width: 100vw;
   position: fixed;

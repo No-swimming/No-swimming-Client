@@ -1,4 +1,5 @@
-export const Logo = require("./img/logo.png");
+export const Logo = require("./img/logo.svg").default;
+export const BookBackground = require("./img/bookBackground.png");
 
 /* 프로필 이미지 사진 */
 export const P1 = require("./profileImg/1_default.png");
