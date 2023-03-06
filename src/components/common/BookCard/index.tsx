@@ -1,6 +1,6 @@
 import { Heart24Filled, Heart24Regular } from '@fluentui/react-icons';
 import axios from 'axios';
-import { average } from 'color.js';
+import { prominent } from 'color.js';
 import { useState } from 'react';
 import * as _ from './style';
 import { Button } from '../../../style/Button';
@@ -36,16 +36,16 @@ function CardHeart({onClick, hearted}:cardHeartType){
 function CardLarge({hearted, data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
 
-    function getAverage(){
-        average(`http://monotype.iptime.org:10888/${data.image}`,
-            {format:"hex"}
+    function getprominent(){
+        prominent(`http://monotype.iptime.org:10888/${data.image}`,
+            {format:"hex", amount:1}
         )
         .then(color => setBgcolor(color as string));
     };
 
     return(
         <_.CardBg backgroud={bgcolor}>
-            <img src={data.image} onLoad={getAverage} />
+            <img src={data.image} onLoad={getprominent} />
             <div>
                 <_.CardTitle>{data.title}</_.CardTitle>
                 <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
@@ -69,8 +69,8 @@ function CardLarge({hearted, data}:cardType){
 function CardMini({data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
 
-    function getAverage(){
-        average(`http://monotype.iptime.org:10888/${data.image}`,
+    function getprominent(){
+        prominent(`http://monotype.iptime.org:10888/${data.image}`,
             {format:"hex"}
         )
         .then(color => setBgcolor(color as string));
@@ -78,7 +78,7 @@ function CardMini({data}:cardType){
 
     return(
         <_.CardBgMini background={bgcolor}>
-            <img src={data.image} onLoad={getAverage} />
+            <img src={data.image} onLoad={getprominent} />
             <div>
                 <_.CardTitleMini>{data.title}</_.CardTitleMini>
                 <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitleMini>
