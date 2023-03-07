@@ -6,7 +6,6 @@ import * as _ from './style';
 import { Button } from '../../../style/Button';
 
 type cardType = {
-    hearted?: boolean;
     data: bookData;
 }
 
@@ -20,20 +19,7 @@ type bookData = {
     description: string;
 }
 
-type cardHeartType = {
-    onClick: any;
-    hearted?: boolean;
-}
-
-function CardHeart({onClick, hearted}:cardHeartType){
-    return(
-        <_.ButtonIcon onClick={onClick}>
-            {hearted ? <Heart24Filled primaryFill="#ff0000" /> : <Heart24Regular primaryFill="#ffffff" />}
-        </_.ButtonIcon>
-    );
-};
-
-function CardLarge({hearted, data}:cardType){
+function CardLarge({data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
 
     function getprominent(){
@@ -52,7 +38,7 @@ function CardLarge({hearted, data}:cardType){
                 <_.CardBody>{data.description.substring(0,70)+"..."}</_.CardBody>
                 <div>
                     <Button BlackTrans className='icon'>
-                        <CardHeart onClick="afsd" hearted={hearted}/>
+                        <Heart24Regular primaryFill="#ffffff" />
                     </Button>
                     <Button BlackTrans>
                         읽은 책에 추가
