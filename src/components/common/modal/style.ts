@@ -3,14 +3,14 @@ import { Transparent } from "../../../style/color";
 
 export const Container = styled.div`
   width: 100vw;
-  height: calc(100vh - 70px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   top:50%;
   left:50%;
-  transform: translate(-50%, -44%);
+  transform: translate(-50%, -50%);
 `;
 
 export const ChildrenContainer = styled.div<{
