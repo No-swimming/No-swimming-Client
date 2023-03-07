@@ -47,9 +47,9 @@ function CardLarge({hearted, data}:cardType){
         <_.CardBg backgroud={bgcolor}>
             <img src={data.image} onLoad={getprominent} />
             <div>
-                <_.CardTitle>{data.title}</_.CardTitle>
+                <_.CardTitle>{data.title.substring(0,28)}</_.CardTitle>
                 <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
-                <_.CardBody>{data.description.substring(0,65)+"..."}</_.CardBody>
+                <_.CardBody>{data.description.substring(0,70)+"..."}</_.CardBody>
                 <div>
                     <Button BlackTrans className='icon'>
                         <CardHeart onClick="afsd" hearted={hearted}/>
