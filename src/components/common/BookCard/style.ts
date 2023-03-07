@@ -47,6 +47,7 @@ export const CardBgMini = styled.div<{background:string}>`
 export const CardTitle = styled.p`
     font-weight: 700;
     font-size: 24px;
+    mix-blend-mode: difference;
     &.trans{
         color: ${Transparent.White50};
     }
@@ -55,6 +56,7 @@ export const CardTitle = styled.p`
 export const CardTitleMini = styled.p`
     font-weight: 700;
     font-size: 20px;
+    mix-blend-mode: difference;
     &.trans{
         color: ${Transparent.White50};
     }
@@ -71,6 +73,7 @@ export const CardBody = styled.p`
     font-weight: 400;
     font-size: 20px;
     opacity: 0.5;
+    mix-blend-mode: difference;
 `;
 
 export const ButtonIcon = styled.button`
