@@ -11,6 +11,7 @@ export const CardBg = styled.div<{backgroud:string}>`
     color: ${Basic.white};
     width: 650px;
     height: 200px;
+    border: 1px ${Transparent.Black25} solid;
     & > div > div{
         display:flex;
         gap: 8px;
