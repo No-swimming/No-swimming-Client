@@ -38,9 +38,7 @@ function CardLarge({data}:cardType){
         <>
             {isOpenModal &&
                 <Modal onClickToggleModal={onClickToggleModal}>
-                    <CardModal>
-                        
-                    </CardModal>
+                    <CardModal data={data} />
                 </Modal>
             }
             <_.CardBg backgroud={bgcolor}>
