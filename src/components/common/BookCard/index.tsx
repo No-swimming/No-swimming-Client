@@ -42,7 +42,7 @@ function CardLarge({data}:cardType){
                 </Modal>
             }
             <_.CardBg backgroud={bgcolor}>
-                <img src={data.image} onLoad={getprominent} />
+                <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} />
                 <div>
                     <_.CardTitle>{data.title}</_.CardTitle>
                     <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
@@ -87,9 +87,7 @@ function CardMini({data}:cardType){
 
 function CardModal({data}:cardType){
     return(
-        <div>
-            반가워요
-        </div>
+        <img src={data.image} />
     )
 }
 
