@@ -1,9 +1,10 @@
 import { Heart24Filled, Heart24Regular } from '@fluentui/react-icons';
 import axios from 'axios';
 import { prominent } from 'color.js';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import * as _ from './style';
 import { Button } from '../../../style/Button';
+import Modal from '../modal';
 
 type cardType = {
     data: bookData;
@@ -21,6 +22,10 @@ type bookData = {
 
 function CardLarge({data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const onClickToggleModal = useCallback(() => {
+        setIsOpenModal(!isOpenModal);
+    }, [isOpenModal]);
 
     function getprominent(){
         prominent(`http://monotype.iptime.org:10888/${data.image}`,
@@ -30,25 +35,34 @@ function CardLarge({data}:cardType){
     };
 
     return(
-        <_.CardBg backgroud={bgcolor}>
-            <img src={data.image} onLoad={getprominent} />
-            <div>
-                <_.CardTitle>{data.title.substring(0,28)}</_.CardTitle>
-                <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
-                <_.CardBody>{data.description.substring(0,70)+"..."}</_.CardBody>
+        <>
+            {isOpenModal &&
+                <Modal onClickToggleModal={onClickToggleModal}>
+                    <CardModal>
+                        
+                    </CardModal>
+                </Modal>
+            }
+            <_.CardBg backgroud={bgcolor}>
+                <img src={data.image} onLoad={getprominent} />
                 <div>
-                    <Button BlackTrans className='icon'>
-                        <Heart24Regular primaryFill="#ffffff" />
-                    </Button>
-                    <Button BlackTrans>
-                        읽은 책에 추가
-                    </Button>
-                    <Button BlackTrans>
-                        독서록 작성
-                    </Button>
+                    <_.CardTitle>{data.title}</_.CardTitle>
+                    <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
+                    <_.CardBody>{data.description.substring(0,70)+"..."}</_.CardBody>
+                    <div>
+                        <Button BlackTrans className='icon'>
+                            <Heart24Regular primaryFill="#ffffff" />
+                        </Button>
+                        <Button BlackTrans>
+                            읽은 책에 추가
+                        </Button>
+                        <Button BlackTrans>
+                            독서록 작성
+                        </Button>
+                    </div>
                 </div>
-            </div>
-        </_.CardBg>
+            </_.CardBg>
+        </>
     )
 }
 
@@ -70,6 +84,14 @@ function CardMini({data}:cardType){
                 <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitleMini>
             </div>
         </_.CardBgMini>
+    )
+}
+
+function CardModal({data}:cardType){
+    return(
+        <div>
+            반가워요
+        </div>
     )
 }
 
