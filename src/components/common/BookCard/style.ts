@@ -22,11 +22,12 @@ export const CardBg = styled.div<{backgroud:string}>`
         flex-direction: column;
         gap: 4px;
     }
-    & > img{
-        width: 124px;
-        border-radius:4px;
-    }
 `;
+
+export const BookCoverImg = styled.img`
+    width: 124px;
+    border-radius:4px;
+`
 
 export const CardBgMini = styled.div<{background:string}>`
     display: flex;
