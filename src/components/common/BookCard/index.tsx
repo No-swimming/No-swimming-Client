@@ -76,7 +76,7 @@ function CardMini({data}:cardType){
 
     return(
         <_.CardBgMini background={bgcolor}>
-            <_.BookCoverImg src={data.image} onLoad={getprominent} />
+            <img src={data.image} onLoad={getprominent} />
             <div>
                 <_.CardTitleMini>{data.title}</_.CardTitleMini>
                 <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitleMini>
@@ -87,7 +87,7 @@ function CardMini({data}:cardType){
 
 function CardModal({data}:cardType){
     return(
-        <>ㅇㅁㄴㄹ</>
+        <_.BookCoverImg src={data.image}/>
     )
 }
 
