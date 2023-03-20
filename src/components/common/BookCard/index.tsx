@@ -42,7 +42,7 @@ function CardLarge({data}:cardType){
                 </Modal>
             }
             <_.CardBg backgroud={bgcolor}>
-                <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} />
+                <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} alt='책 표지' />
                 <div>
                     <_.CardTitle>{data.title}</_.CardTitle>
                     <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
