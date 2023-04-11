@@ -5,6 +5,7 @@ import { useState, useCallback } from 'react';
 import * as _ from './style';
 import { Button } from '../../../style/Button';
 import Modal from '../modal';
+import tinycolor from "tinycolor2";
 
 type cardType = {
     data: bookData;
@@ -22,6 +23,7 @@ type bookData = {
 
 function CardLarge({data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
+    const [textColor, setTextColor] = useState(tinycolor(bgcolor).isLight() ? 'white' : 'black' );
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const onClickToggleModal = useCallback(() => {
         setIsOpenModal(!isOpenModal);
@@ -33,7 +35,6 @@ function CardLarge({data}:cardType){
         )
         .then(color => setBgcolor(color as string));
     };
-
     return(
         <>
             {isOpenModal &&
@@ -41,7 +42,7 @@ function CardLarge({data}:cardType){
                     <CardModal data={data} />
                 </Modal>
             }
-            <_.CardBg backgroud={bgcolor}>
+            <_.CardBg backgroud={bgcolor} text={textColor}>
                 <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} alt='책 표지' />
                 <div>
                     <_.CardTitle>{data.title}</_.CardTitle>
