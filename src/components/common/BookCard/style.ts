@@ -54,7 +54,8 @@ export const CardTitle = styled.p`
     font-weight: 700;
     font-size: 24px;
     &.trans{
-        color: ${Transparent.White50};
+        color: inherit;
+        opacity: 0.5;
     }
 `;
 
