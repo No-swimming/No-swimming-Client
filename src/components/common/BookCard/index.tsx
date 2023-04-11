@@ -22,7 +22,7 @@ type bookData = {
 
 function CardLarge({data}:cardType){
     const [bgcolor,setBgcolor] = useState<string>("#000000");
-    const [textColor, setTextColor] = useState<string>();
+    const [textColor, setTextColor] = useState<string>("#ffffff");
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const onClickToggleModal = useCallback(() => {
         setIsOpenModal(!isOpenModal);
