@@ -29,7 +29,7 @@ function CardLarge({data}:cardType){
     }, [isOpenModal]);
 
     useEffect(()=>{
-        setTextColor(tinycolor(bgcolor).isLight() ? 'white' : 'black' );
+        setTextColor(tinycolor(bgcolor).isLight() ? 'black' : 'white' );
     },[bgcolor]);
 
     function getprominent(){
