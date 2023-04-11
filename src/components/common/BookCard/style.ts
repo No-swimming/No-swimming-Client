@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Basic, Transparent } from "../../../style/color";
 
-export const CardBg = styled.div<{backgroud:string}>`
+export const CardBg = styled.div<{backgroud:string; text: string;}>`
     display:flex;
     gap: 12px;
     padding: 12px;
     box-sizing: border-box;
     border-radius: 12px;
     background: ${props => props.backgroud};
-    color: ${Basic.white};
+    color: ${props => props.text};
     width: 650px;
     height: 200px;
     border: 1px ${Transparent.Black25} solid;
@@ -53,7 +53,6 @@ export const CardBgMini = styled.div<{background:string}>`
 export const CardTitle = styled.p`
     font-weight: 700;
     font-size: 24px;
-    mix-blend-mode: difference;
     &.trans{
         color: ${Transparent.White50};
     }
@@ -62,7 +61,6 @@ export const CardTitle = styled.p`
 export const CardTitleMini = styled.p`
     font-weight: 700;
     font-size: 20px;
-    mix-blend-mode: difference;
     &.trans{
         color: ${Transparent.White50};
     }
@@ -79,7 +77,6 @@ export const CardBody = styled.p`
     font-weight: 400;
     font-size: 20px;
     opacity: 0.5;
-    mix-blend-mode: difference;
 `;
 
 export const ButtonIcon = styled.button`
