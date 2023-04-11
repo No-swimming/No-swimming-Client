@@ -1,5 +1,4 @@
-import { Heart24Filled, Heart24Regular } from '@fluentui/react-icons';
-import axios from 'axios';
+import { Heart24Regular } from '@fluentui/react-icons';
 import { prominent } from 'color.js';
 import { useState, useCallback } from 'react';
 import * as _ from './style';
