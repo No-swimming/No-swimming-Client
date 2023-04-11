@@ -1,6 +1,6 @@
 import { Heart24Regular } from '@fluentui/react-icons';
 import { prominent } from 'color.js';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import * as _ from './style';
 import { Button } from '../../../style/Button';
 import Modal from '../modal';
@@ -21,12 +21,16 @@ type bookData = {
 }
 
 function CardLarge({data}:cardType){
-    const [bgcolor,setBgcolor] = useState("#000000");
-    const [textColor, setTextColor] = useState(tinycolor(bgcolor).isLight() ? 'white' : 'black' );
+    const [bgcolor,setBgcolor] = useState<string>("#000000");
+    const [textColor, setTextColor] = useState<string>();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const onClickToggleModal = useCallback(() => {
         setIsOpenModal(!isOpenModal);
     }, [isOpenModal]);
+
+    useEffect(()=>{
+        setTextColor(tinycolor(bgcolor).isLight() ? 'white' : 'black' );
+    },[bgcolor]);
 
     function getprominent(){
         prominent(`http://monotype.iptime.org:10888/${data.image}`,
