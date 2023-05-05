@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/common/header";
 import MainPage from "./pages/main";
 import NotFound from "./pages/notFound";
+import Search from "./pages/search";
 import Write from "./pages/write";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/write/:isbn" element={<Write />} />
+          <Route path="/search/:book/:start" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>
