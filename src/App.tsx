@@ -4,6 +4,7 @@ import Write from "./pages/write";
 import MainPage from "./pages/main";
 import NotFound from "./pages/notFound";
 import MyPage from "./pages/myPage";
+import Admin from "./pages/admin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/write/:isbn" element={<Write />} />
+          <Route path="/admin" element={<Admin/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
