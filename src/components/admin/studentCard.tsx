@@ -26,7 +26,8 @@ const StudentContainer = styled.div`
     padding: 8px;
     gap: 8px;
     border: 1px ${Gray[10]} solid;
-    background-color: ${Basic.white}
+    border-radius: 8px;
+    background-color: ${Basic.white};
 `;
 
 const ProfileImg = styled.img`
