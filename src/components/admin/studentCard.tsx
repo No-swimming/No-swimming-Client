@@ -23,6 +23,7 @@ export default StudentCard;
 const StudentContainer = styled.div`
     display: flex;
     flex-direction: row;
+    flex-basis: 200px;
     padding: 8px;
     gap: 8px;
     border: 1px ${Gray[10]} solid;
