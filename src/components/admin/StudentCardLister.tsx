@@ -5,7 +5,7 @@ import { useState } from "react";
 const StudentCardLister = () => {
     const [Data, setData] = useState<studentArrayType>({
         "student_list":[]
-    })
+    });
 
     return(
         <HorizonalStyle>
