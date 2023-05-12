@@ -1,19 +1,17 @@
 import styled from "styled-components";
 import StudentCard from "./studentCard"
+import { useState } from "react";
 
 const StudentCardLister = () => {
+    const [Data, setData] = useState<studentArrayType>({
+        "student_list":[]
+    })
+
     return(
         <HorizonalStyle>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
-            <StudentCard data="1"/>
+            {Data.student_list.map((data) => {
+                return <StudentCard data={data} />;
+            })}
         </HorizonalStyle>
     )
 }
