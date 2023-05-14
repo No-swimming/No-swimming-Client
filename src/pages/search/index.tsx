@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Pagination from "../../components/common/search/pagination";
+import SearchBar from "../../components/common/SearchBar";
+import BookContainer from "../../components/search/bookContainer";
+import Pagination from "../../components/search/pagination";
 import * as _ from "./style";
 
 type BookDataType = {
@@ -23,8 +25,9 @@ type BookType = {
   "isbn": string;
   "description": string;
 };
-const mono = "http://monotype.iptime.org:10888/";
-const url = "https://openapi.naver.com/v1/search/book";
+
+const mono = process.env.REACT_APP_MONO;
+const bestBook = process.env.REACT_APP_SEARCH_BOOK;
 
 const Search = () => {
   const { book, start } = useParams();
@@ -33,31 +36,33 @@ const Search = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: `${mono}${url}?query=${book}&display=8&start=${Number(start)*8}`,
+      url: `${mono}${bestBook}?query=${book}&display=8&start=${1 + (Number(start) - 1) * 8}`,
       headers: {
         "X-Naver-Client-Id": process.env.REACT_APP_NAVER_ID,
         "X-Naver-Client-Secret": process.env.REACT_APP_NAVER_SECRET_KEY
       }
     })
       .then(function (response) {
-        console.log(response.data);
         setBookData(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [start])
+  }, [start, book]);
 
   return (
     <_.Container>
-      <div>
-        <h1>검색 결과</h1>
-        <p>{bookData?.total}건</p>
-      </div>
-      
-      <_.Seach inputValue={book} blur="24px" />
+      <_.SearchContainer>
+        <div>
+          <h1>검색 결과</h1>
+          <p>{bookData?.total}건</p>
+        </div>
 
-      <Pagination total={bookData?.total}/>
+        <SearchBar inputValue={book!} />
+      </_.SearchContainer>
+      <BookContainer bookData={bookData} />
+
+      <Pagination start={Number(start)} book={book!} total={bookData?.total!}/>
     </_.Container>
   )
 }

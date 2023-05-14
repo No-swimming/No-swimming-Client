@@ -1,6 +1,6 @@
 import { Book24Regular, Library24Regular, NumberCircle124Regular, Person24Regular, BuildingGovernment24Regular } from "@fluentui/react-icons";
 import { Outlet } from "react-router-dom";
-import { Logo, P1 } from "../../../assets";
+import { Logo } from "../../../assets";
 import { Button } from "../../../style/Button";
 import * as _ from "./style";
 
@@ -49,7 +49,7 @@ const Header = (): JSX.Element => {
               <>
                 <_.Role>선생님</_.Role>
                 <_.Name>박생선</_.Name>
-                <_.ProfileImg src={P1} />
+                <_.ProfileImg src={Logo} />
               </>
           }
         </div>

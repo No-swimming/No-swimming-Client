@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Basic, Transparent } from "../../../style/color";
 
+
 export const AllPage = styled.div`
   display: flex;
   flex-direction: column;

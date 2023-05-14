@@ -1,16 +1,27 @@
 import styled from "styled-components";
-import SearchBar from "../../components/common/SearchBar";
+import { Gray } from "../../style/color";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 45px;
 `;
 
-export const Seach = styled(SearchBar)`
-  width: 40%;
-  height: 64px;
-`
+export const SearchContainer = styled.div`
+  width: 1320px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  > div {
+    display: flex;
+    gap: 8px;
+    > p {
+      color: ${Gray[50]};
+      font-size: 32px;
+    }
+  }
+`;
 
-export const PageContainer = styled.div`
-  
-`
+export const PageContainer = styled.div``;
