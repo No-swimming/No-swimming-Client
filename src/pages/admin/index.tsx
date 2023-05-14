@@ -33,7 +33,7 @@ const Admin = ():JSX.Element => {
     return(
         <CenterProvider>
             <WidthProvider>
-                <p>학생 관리</p>
+                <PageTitle>학생 관리</PageTitle>
                 <StudentCardLister student_list={Data.student_list}/>
             </WidthProvider>
         </CenterProvider>
@@ -47,10 +47,16 @@ const WidthProvider = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-`
+`;
 
 const CenterProvider = styled.div`
     display:flex;
     align-items:center;
     flex-direction: column;
+`;
+
+const PageTitle = styled.p`
+    font-weight: 700;
+    font-size: 32px;
+    margin-top: 45px;
 `
