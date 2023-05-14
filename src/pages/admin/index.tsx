@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StudentCardLister from "../../components/admin/StudentCardLister";
 import axios from "axios";
+import styled from "styled-components";
 
 const Admin = ():JSX.Element => {
     const [Data,setData] = useState<studentArrayType>(
@@ -30,10 +31,26 @@ const Admin = ():JSX.Element => {
     },[ClassFilter, GradeFilter]);
 
     return(
-        <>
-            <StudentCardLister student_list={Data.student_list}/>
-        </>
+        <CenterProvider>
+            <WidthProvider>
+                <p>학생 관리</p>
+                <StudentCardLister student_list={Data.student_list}/>
+            </WidthProvider>
+        </CenterProvider>
     )
 }
 
 export default Admin;
+
+const WidthProvider = styled.div`
+    width: 1320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
+
+const CenterProvider = styled.div`
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+`
