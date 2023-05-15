@@ -49,9 +49,9 @@ const BestBook = (): JSX.Element => {
         <Title>인기 도서</Title>
         <Line>|</Line>
         <Books>
-          <p onClick={() => navigate(`/search/${book1}`)}>{book1}</p>
-          <p onClick={() => navigate(`/search/${book2}`)}>{book2}</p>
-          <p onClick={() => navigate(`/search/${book3}`)}>{book3}</p>
+          <p onClick={() => navigate(`/search/${book1}/1`)}>{book1}</p>
+          <p onClick={() => navigate(`/search/${book2}/1`)}>{book2}</p>
+          <p onClick={() => navigate(`/search/${book3}/1`)}>{book3}</p>
         </Books>
       </div>
       <Plus>+ 더보기</Plus>

@@ -52,6 +52,11 @@ const BookWrite = ({ value, handleInputChange, setValue }: props): JSX.Element =
         }}
         value={value.content}
         onChange={handleInputChange("content")}
+        onKeyDown={(e)=>{
+          if(e.ctrlKey && e.key == "v"){
+            setCopyCount(copyCount-1)
+          }
+        }}
       />
       <Count>
         <p>{value.content.split(/\s+/).length - 1}단어 {value.content.length}글자</p>
