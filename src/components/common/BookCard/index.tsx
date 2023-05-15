@@ -48,9 +48,9 @@ function CardLarge({data}:cardType){
             <_.CardBg backgroud={bgcolor} text={textColor}>
                 <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} alt='책 표지' />
                 <div>
-                    <_.CardTitle>{data.title.substring(0,23)}</_.CardTitle>
+                    <_.CardTitle>{data.title}</_.CardTitle>
                     <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
-                    <_.CardBody>{data.description.substring(0,65)+"..."}</_.CardBody>
+                    <_.CardBody>{data.description}</_.CardBody>
                     <div>
                         <Button BlackTrans className='icon'>
                             <Heart24Regular primaryFill="#ffffff" />
