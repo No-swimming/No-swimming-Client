@@ -4,6 +4,7 @@ import Write from "./pages/write";
 import MainPage from "./pages/main";
 import NotFound from "./pages/notFound";
 import MyPage from "./pages/myPage";
+import Search from "./pages/search";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
           {/* 헤더 적용할 페이지는 여기에  */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/mypage" element={<MyPage />} />
           <Route path="/write/:isbn" element={<Write />} />
+          <Route path="/search/:book/:start" element={<Search />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
