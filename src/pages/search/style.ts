@@ -7,6 +7,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 30px;
   margin-top: 45px;
+  margin-bottom: 100px;
 `;
 
 export const SearchContainer = styled.div`
