@@ -18,23 +18,27 @@ const Pagination = ({ start, book, total }: Props) => {
 
   useEffect(() => {
     const pageNum = Math.ceil(total / 8);
-    setPages( Array.from(Array(10), (_, index) => index + 1))
-  }, [showPage])
+    setPages(Array.from({ length: Math.min(10, pageNum - (showPage - 1) * 10) }, (_, index) => index + 10 * showPage - 9))
+  }, [showPage, total])
 
 
   return (
     <Container>
-      <ArrowBtn >
-        <TriangleLeft16Filled primaryFill="#ffffff" />
-      </ArrowBtn>
+      {
+        showPage !== 1 && <ArrowBtn onClick={() => { setShowPage(showPage - 1) }}>
+          <TriangleLeft16Filled primaryFill="#ffffff" />
+        </ArrowBtn>
+      }
       {
         pages.map((n) => {
           return <NumberBtn select={n == start} onClick={() => navigate(`/search/${book}/${n}`)}>{n}</NumberBtn>
         })
       }
-      <ArrowBtn >
-        <TriangleRight16Filled primaryFill="#ffffff" />
-      </ArrowBtn>
+      {
+        showPage !== (Math.ceil(total / 80)) && <ArrowBtn onClick={() => { setShowPage(showPage + 1) }}>
+          <TriangleRight16Filled primaryFill="#ffffff" />
+        </ArrowBtn>
+      }
     </Container>
   )
 }
@@ -44,6 +48,11 @@ export default Pagination;
 const Container = styled.div`
   width: 1300px;
   display: flex;
+  gap: 16px;
+`;
+
+const OpContainer = styled.div`
+  width: 36px;
 `
 
 const Btn = styled.div`
