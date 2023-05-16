@@ -21,27 +21,20 @@ type bookType = { search_word: string, rank: string, type: string }
 
 const BestBook = (): JSX.Element => {
   const navigate = useNavigate();
-  const [book1, setBook1] = useState("흔한 남매");
-  const [book2, setBook2] = useState("불편한 편의점");
-  const [book3, setBook3] = useState("아버지의 해방일지");
+  const [books, setBooks] = useState<string[]>([]);
+
   useEffect(() => {
     if (!sessionStorage.getItem("book1")) {
       axios(axiosBook)
         .then(res => {
-          let list = res.data.getBookSearchWordBest.body.items.item;
-          sessionStorage.setItem("book1", list[9].search_word);
-          sessionStorage.setItem("book2", list[8].search_word);
-          sessionStorage.setItem("book3", list[7].search_word);
-          list = list.map((data: bookType) => data.search_word);
+          let list = res.data.getBookSearchWordBest.body.items.item.map((data: bookType) => data.search_word);
           sessionStorage.setItem("best", JSON.stringify(list.reverse()))
         })
         .catch(err => {
           console.log(err)
         })
     }
-    setBook1(() => sessionStorage.getItem("book1") || "흔한남매")
-    setBook2(() => sessionStorage.getItem("book2") || "불편한 편의점")
-    setBook3(() => sessionStorage.getItem("book3") || "아버지의 해방일지")
+    setBooks(JSON.parse(sessionStorage.getItem("best") || ""))
   }, [])
 
   return (
@@ -50,9 +43,11 @@ const BestBook = (): JSX.Element => {
         <Title>인기 도서</Title>
         <Line>|</Line>
         <Books>
-          <p onClick={() => navigate(`/search/${book1}/1`)}>{book1}</p>
-          <p onClick={() => navigate(`/search/${book2}/1`)}>{book2}</p>
-          <p onClick={() => navigate(`/search/${book3}/1`)}>{book3}</p>
+          {
+            books.slice(0,3).map((data) => {
+              return <p key={data} onClick={() => navigate(`search/${data}/1`)}>{data}</p>
+            })
+          }
         </Books>
       </div>
       <Plus onClick={() => navigate('/best')}>+ 더보기</Plus>
