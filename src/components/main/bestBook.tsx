@@ -24,17 +24,17 @@ const BestBook = (): JSX.Element => {
   const [books, setBooks] = useState<string[]>([]);
 
   useEffect(() => {
-    if (!sessionStorage.getItem("book1")) {
+    if (!sessionStorage.getItem("best")) {
       axios(axiosBook)
         .then(res => {
-          let list = res.data.getBookSearchWordBest.body.items.item.map((data: bookType) => data.search_word);
-          sessionStorage.setItem("best", JSON.stringify(list.reverse()))
+          let list = res.data.getBookSearchWordBest.body.items.item.map((data: bookType) => data.search_word).reverse();
+          sessionStorage.setItem("best", JSON.stringify(list))
         })
         .catch(err => {
           console.log(err)
         })
     }
-    setBooks(JSON.parse(sessionStorage.getItem("best") || ""))
+    setBooks(JSON.parse(sessionStorage.getItem("best") || '["흔한남매","스즈메의 문단속","불편한 편의점"]'))
   }, [])
 
   return (
@@ -44,7 +44,7 @@ const BestBook = (): JSX.Element => {
         <Line>|</Line>
         <Books>
           {
-            books.slice(0,3).map((data) => {
+            books.slice(0, 3).map((data) => {
               return <p key={data} onClick={() => navigate(`search/${data}/1`)}>{data}</p>
             })
           }
