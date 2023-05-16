@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Basic, Transparent } from "../../../style/color";
 
-
 export const AllPage = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,6 +38,10 @@ export const Container = styled.div`
   }
 `;
 
+export const Logo = styled.img`
+  width: 90px;
+  height: 22px;
+`;
 export const Menu = styled.div`
   display: flex;
   align-items: center;
