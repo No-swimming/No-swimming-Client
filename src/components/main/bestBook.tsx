@@ -41,9 +41,8 @@ const BestBook = (): JSX.Element => {
     }
     setBook1(() => sessionStorage.getItem("book1") || "흔한남매")
     setBook2(() => sessionStorage.getItem("book2") || "불편한 편의점")
-    setBook3(() => sessionStorage.getItem("book") || "아버지의 해방일지")
+    setBook3(() => sessionStorage.getItem("book3") || "아버지의 해방일지")
   }, [])
-
 
   return (
     <Container>
