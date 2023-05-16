@@ -1,33 +1,39 @@
 import styled from "styled-components";
-import { Transparent } from "../../../style/color";
 
-export const Container = styled.div`
-  width: 100vw;
-  height: calc(100vh - 70px);
+export const BackGround = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  z-index: 1;
 `;
 
 export const ChildrenContainer = styled.div<{
   width?: string;
   height?: string;
   padding?: string;
+  display?: string;
+  justifyContent?: string;
+  alignItems?: string;
+  gap?: string;
+  flexDirection?: string;
+
+  background?: boolean;
 }>`
   background-color: white;
-  width: ${(props) => props.width ?? "466px"};
+  width: ${(props) => props.width ?? "450px"};
   height: ${(props) => props.height ?? ""};
   border-radius: 8px;
   z-index: 10000;
-  padding: ${(props) => props.padding ?? "40px 39px"};
-`;
-
-export const BackDrop = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 9999;
-  background-color: rgba(${Transparent.Black50});
+  gap: ${(props) => props.gap ?? "32px"};
+  padding: ${(props) => props.padding ?? "32px"};
+  display: ${(props) => props.display ?? ""};
+  justify-content: ${(props) => props.justifyContent ?? ""};
+  align-items: ${(props) => props.alignItems ?? ""};
+  flex-direction: ${(props) => props.flexDirection ?? ""};
 `;

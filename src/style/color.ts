@@ -13,5 +13,6 @@ export const Gray = {
 
 export const Transparent = {
   Black50 : "#00000080",
+  Black25 : "#00000040",
   White50 : "#ffffff80",
 }

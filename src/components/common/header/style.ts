@@ -38,6 +38,10 @@ export const Container = styled.div`
   }
 `;
 
+export const Logo = styled.img`
+  width: 90px;
+  height: 22px;
+`;
 export const Menu = styled.div`
   display: flex;
   align-items: center;
