@@ -5,6 +5,7 @@ import MainPage from "./pages/main";
 import NotFound from "./pages/notFound";
 import MyPage from "./pages/myPage";
 import Search from "./pages/search";
+import BestSeller from "./pages/bestSeller";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/write/:isbn" element={<Write />} />
           <Route path="/search/:book/:start" element={<Search />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/best" element={<BestSeller />} />
         </Route>
       </Routes>
     </BrowserRouter>
