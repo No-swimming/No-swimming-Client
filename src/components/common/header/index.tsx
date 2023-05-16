@@ -14,9 +14,11 @@ const Header = (): JSX.Element => {
     <_.AllPage>
       <_.Container>
         <div>
-          <img src={Logo} />
+          <_.MenuContent to="/">
+            <_.Logo src={Logo} />
+          </_.MenuContent>
           <_.Menu>
-            <_.MenuContent to="/">
+            <_.MenuContent to="/best">
               <Book24Regular primaryFill="black" />
               <p>인기 도서</p>
             </_.MenuContent>

@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Gray } from "../../style/color";
 
-const BESTBOOK_KEY = process.env.REACT_APP_BESTBOOK_KEY;
-const corsUrl = "http://monotype.iptime.org:10888/";
-const bookUrl = `http://apis.data.go.kr/6260000/BookSearchWordBestService/getBookSearchWordBest?serviceKey=${BESTBOOK_KEY}`
+const corsUrl = process.env.REACT_APP_MONO;
+const bookUrl = process.env.REACT_APP_BEST_BOOK;
 const axiosBook = {
   method: 'get',
   url: `${corsUrl}${bookUrl}`,
@@ -19,6 +18,7 @@ const axiosBook = {
 
 type bookType = { search_word: string, rank: string, type: string }
 
+
 const BestBook = (): JSX.Element => {
   const navigate = useNavigate();
   const [book1, setBook1] = useState("흔한 남매");
@@ -28,10 +28,12 @@ const BestBook = (): JSX.Element => {
     if (!sessionStorage.getItem("book1")) {
       axios(axiosBook)
         .then(res => {
-          const list = res.data.getBookSearchWordBest.body.items.item;
+          let list = res.data.getBookSearchWordBest.body.items.item;
           sessionStorage.setItem("book1", list[9].search_word);
           sessionStorage.setItem("book2", list[8].search_word);
           sessionStorage.setItem("book3", list[7].search_word);
+          list = list.map((data: bookType) => data.search_word);
+          sessionStorage.setItem("best", JSON.stringify(list.reverse()))
         })
         .catch(err => {
           console.log(err)
@@ -54,7 +56,7 @@ const BestBook = (): JSX.Element => {
           <p onClick={() => navigate(`/search/${book3}/1`)}>{book3}</p>
         </Books>
       </div>
-      <Plus>+ 더보기</Plus>
+      <Plus onClick={() => navigate('/best')}>+ 더보기</Plus>
     </Container >
   )
 }
@@ -76,22 +78,22 @@ const Container = styled.div`
           height: 26.4px;
   }
           `
-          const Title = styled.p`
+const Title = styled.p`
           font-weight: bold;
           width: 75.5px;
           white-space : nowrap;
           `
-          const Line = styled.p`
+const Line = styled.p`
           color: ${Gray[25]};
           `
-          const Books = styled.div`
+const Books = styled.div`
           display: flex;
           gap: 12px;
   >p{
             cursor: pointer;
   }
           `
-          const Plus = styled.button`
+const Plus = styled.button`
           background-color: rgba(0,0,0,0);
           border: none;
           font-size: 20px;
