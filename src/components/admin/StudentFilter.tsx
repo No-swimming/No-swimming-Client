@@ -10,8 +10,9 @@ interface filterPropsType{
 const StudentFilter = ({Class, Grade, setClass, setGrade}:filterPropsType) => {
     return(
         <>
-            <FilterOption title='1학년' countData={123} />
-            <FilterOption selected title="abc" countData={213} />
+            <FilterOption title='1학년' countData={63} realData={1} state={Grade} id="aaa"/>
+            <FilterOption title="2학년" countData={70} realData={2} state={Grade} id="bbb"/>
+            <FilterOption title="3학년" countData={74} realData={3} state={Grade} id="ccc"/>
         </>
     )
 }
@@ -19,25 +20,18 @@ const StudentFilter = ({Class, Grade, setClass, setGrade}:filterPropsType) => {
 export default StudentFilter;
 
 interface selectorPropsType{
-    selected?: boolean;
     title: string;
     countData: number;
+    realData: number;
+    state: number;
+    id: string;
 }
 
-const FilterOption = ({selected, title, countData}:selectorPropsType) => {
-    if(selected){
-        return(
-            <button>
-                {title}
-                {countData+'명'}
-            </button>
-        )
-    }
-    else{
-        return(
-            <button>
-                {title}
-            </button>
-        )
-    }
+const FilterOption = ({title, countData, realData, state, id}:selectorPropsType) => {
+    return(
+        <label htmlFor={id}>
+            <input type="radio" value={title} checked={state===realData} id={id}/>
+            {title}
+        </label>
+    )
 }
