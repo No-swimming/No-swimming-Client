@@ -26,7 +26,7 @@ const Header = (): JSX.Element => {
               <Library24Regular primaryFill="black" />
               <p>책꽂이</p>
             </_.MenuContent>
-            <_.MenuContent to="/">
+            <_.MenuContent to="/studentrank">
               <NumberCircle124Regular primaryFill="black" />
               <p>학생 랭크</p>
             </_.MenuContent>
