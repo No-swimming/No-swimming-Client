@@ -6,6 +6,8 @@ import NotFound from "./pages/notFound";
 import MyPage from "./pages/myPage";
 import Search from "./pages/search";
 import BestSeller from "./pages/bestSeller";
+import StudentBest from "./pages/studentBest";
+import Login from "./pages/login";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/search/:book/:start" element={<Search />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/best" element={<BestSeller />} />
+          <Route path="/studentrank" element={<StudentBest />} />
+          <Route path="/login" element={<Login/> }/>
         </Route>
       </Routes>
     </BrowserRouter>
