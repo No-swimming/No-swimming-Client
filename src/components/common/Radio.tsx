@@ -18,9 +18,10 @@ const Radio = ({title, countData, realData, state, setState, id}:selectorPropsTy
     }
 
     return(
-        <Label htmlFor={id}>
+        <Label htmlFor={id} className={state===realData ? 'selected' : undefined}>
             <NoAppearance type="radio" value={title} checked={state===realData} id={id} onChange={onChangeHandler}/>
-            {title}
+            {state===realData ? title : <GraySpan>{title}</GraySpan>}
+            
             {state===realData ? <GraySpan>{countData}</GraySpan> : null}
         </Label>
     )
@@ -42,11 +43,13 @@ const Label = styled.label`
     align-items: flex-start;
     padding: 6px 12px;
     gap: 8px;
-
-    outline: 2px solid ${Basic.black0};
     border-radius: 9888px;
 
     background: ${Gray.Elevated0};
+
+    &.selected{
+        outline: 2px solid ${Basic.black0};
+    }
 `
 
 const GraySpan = styled.span`
