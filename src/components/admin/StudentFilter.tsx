@@ -28,9 +28,13 @@ interface selectorPropsType{
 }
 
 const FilterOption = ({title, countData, realData, state, id}:selectorPropsType) => {
+    function onChangeHandler(){
+        
+    }
+
     return(
         <label htmlFor={id}>
-            <input type="radio" value={title} checked={state===realData} id={id}/>
+            <input type="radio" value={title} checked={state===realData} id={id} onChange={onChangeHandler}/>
             {title}
         </label>
     )

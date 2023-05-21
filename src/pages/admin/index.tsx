@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import StudentCardLister from "../../components/admin/StudentCardLister";
 import axios from "axios";
 import styled from "styled-components";
+import StudentFilter from "../../components/admin/StudentFilter";
 
 const Admin = ():JSX.Element => {
     const [Data,setData] = useState<studentArrayType>(
@@ -9,7 +10,7 @@ const Admin = ():JSX.Element => {
             student_list:[]
         }
     );
-    const [GradeFilter,setGradeFilter] = useState<number>(0);
+    const [GradeFilter,setGradeFilter] = useState<number>(3);
     const [ClassFilter, setClassFilter] = useState<number>(0);
 
     useEffect(()=>{
@@ -34,6 +35,7 @@ const Admin = ():JSX.Element => {
         <CenterProvider>
             <WidthProvider>
                 <PageTitle>학생 관리</PageTitle>
+                <StudentFilter Class={ClassFilter} Grade={GradeFilter} setClass={setClassFilter} setGrade={setGradeFilter}/>
                 <StudentCardLister student_list={Data.student_list}/>
             </WidthProvider>
         </CenterProvider>
