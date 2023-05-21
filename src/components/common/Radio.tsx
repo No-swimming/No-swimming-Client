@@ -10,9 +10,10 @@ interface selectorPropsType{
     state: number;
     id: string;
     setState: React.Dispatch<SetStateAction<number>>;
+    countPostfix?: string;
 }
 
-const Radio = ({title, countData, realData, state, setState, id}:selectorPropsType) => {
+const Radio = ({title, countData, realData, state, setState, id, countPostfix}:selectorPropsType) => {
     function onChangeHandler(){
         setState(realData);
     }
@@ -22,7 +23,7 @@ const Radio = ({title, countData, realData, state, setState, id}:selectorPropsTy
             <NoAppearance type="radio" value={title} checked={state===realData} id={id} onChange={onChangeHandler}/>
             {state===realData ? title : <GraySpan>{title}</GraySpan>}
             
-            {state===realData ? <GraySpan>{countData}</GraySpan> : null}
+            {state===realData ? <GraySpan>{countData}{countPostfix}</GraySpan> : null}
         </Label>
     )
 }
