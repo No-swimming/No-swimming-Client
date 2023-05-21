@@ -37,6 +37,7 @@ const FilterOption = ({title, countData, realData, state, setState, id}:selector
         <label htmlFor={id}>
             <input type="radio" value={title} checked={state===realData} id={id} onChange={onChangeHandler}/>
             {title}
+            <p>{state===realData ? countData : null}</p>
         </label>
     )
 }
