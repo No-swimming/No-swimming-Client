@@ -9,7 +9,7 @@ interface selectorPropsType{
     realData: number | string | boolean;
     state: number | string | boolean;
     id: string;
-    setState: React.Dispatch<SetStateAction<number | string | boolean>>;
+    setState: React.Dispatch<SetStateAction<number>> | React.Dispatch<SetStateAction<boolean>> | React.Dispatch<SetStateAction<string>>;
     countPostfix?: string;
 }
 
