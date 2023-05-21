@@ -1,4 +1,4 @@
-import { SetStateAction } from "react"
+import React, { SetStateAction } from "react"
 
 interface filterPropsType{
     setClass: React.Dispatch<SetStateAction<number>>;
@@ -10,9 +10,9 @@ interface filterPropsType{
 const StudentFilter = ({Class, Grade, setClass, setGrade}:filterPropsType) => {
     return(
         <>
-            <FilterOption title='1학년' countData={63} realData={1} state={Grade} id="aaa"/>
-            <FilterOption title="2학년" countData={70} realData={2} state={Grade} id="bbb"/>
-            <FilterOption title="3학년" countData={74} realData={3} state={Grade} id="ccc"/>
+            <FilterOption title='1학년' countData={63} realData={1} state={Grade} setState={setGrade} id="aaa"/>
+            <FilterOption title="2학년" countData={70} realData={2} state={Grade} setState={setGrade} id="bbb"/>
+            <FilterOption title="3학년" countData={74} realData={3} state={Grade} setState={setGrade} id="ccc"/>
         </>
     )
 }
@@ -25,11 +25,12 @@ interface selectorPropsType{
     realData: number;
     state: number;
     id: string;
+    setState: React.Dispatch<SetStateAction<number>>;
 }
 
-const FilterOption = ({title, countData, realData, state, id}:selectorPropsType) => {
+const FilterOption = ({title, countData, realData, state, setState, id}:selectorPropsType) => {
     function onChangeHandler(){
-        
+        setState(realData);
     }
 
     return(
