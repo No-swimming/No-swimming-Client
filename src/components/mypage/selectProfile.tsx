@@ -1,11 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { profileImg } from "../../assets";
 import { Button } from "../../style/Button";
 import { Gray } from "../../style/color";
 
+type userType = {
+  "name": string,
+  "profile_num": number,
+  "grade": number,
+  "class_num": number,
+  "number": number
+}
+
 type Props = {
-  profile: number;
+  profile: userType;
+  setProfileModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setProfile: React.Dispatch<React.SetStateAction<userType>>
 }
 const profileExplain = [
   { title: "기본", explain: "정석적인 기본 프로필" },
@@ -20,8 +30,7 @@ const profileExplain = [
   { title: "다이아몬드", explain: "오랜 시간을 기다렸지" }
 ];
 
-const SelectProfileModal = ({ profile }: Props): JSX.Element => {
-  const [selectProfile, setSelectProfile] = useState<number>(profile);
+const SelectProfileModal = ({ profile, setProfileModal, setProfile }: Props): JSX.Element => {
 
   const Submit = () => {
     /** axios 연결 */
@@ -31,22 +40,22 @@ const SelectProfileModal = ({ profile }: Props): JSX.Element => {
     <>
       <h1>프로필 이미지 선택</h1>
       <Profile>
-        <img src={profileImg[selectProfile]} />
+        <img src={profileImg[profile.profile_num]} />
         <Explain>
-          <p>{profileExplain[selectProfile].title}</p>
-          <p>{profileExplain[selectProfile].explain}</p>
+          <p>{profileExplain[profile.profile_num].title}</p>
+          <p>{profileExplain[profile.profile_num].explain}</p>
         </Explain>
       </Profile>
       <SelectProfileDiv>
         {
           profileImg.map((img, i) => {
             return (
-              <img src={img} onClick={() => { setSelectProfile(i) }} />
+              <img src={img} onClick={() => { setProfile({ ...profile, profile_num: i }) }} />
             )
           })
         }
       </SelectProfileDiv>
-      <SelectButton Black onClick={() => { }}>선택</SelectButton>
+      <SelectButton Black onClick={() => { setProfileModal(false) }}>선택</SelectButton>
     </>
   )
 }
