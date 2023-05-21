@@ -6,10 +6,10 @@ import { Basic } from "../../style/color";
 interface selectorPropsType{
     title: string;
     countData: number;
-    realData: number;
-    state: number;
+    realData: number | string | boolean;
+    state: number | string | boolean;
     id: string;
-    setState: React.Dispatch<SetStateAction<number>>;
+    setState: React.Dispatch<SetStateAction<number | string | boolean>>;
     countPostfix?: string;
 }
 
