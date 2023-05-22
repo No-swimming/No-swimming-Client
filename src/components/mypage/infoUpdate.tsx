@@ -6,6 +6,7 @@ import { Gray } from "../../style/color";
 import SelectProfileModal from "./selectProfile";
 
 import Input from "../common/Input/Input";
+import axios from "axios";
 
 type props = {
   userData: UserData;
@@ -13,57 +14,70 @@ type props = {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-type userType = {
-  "name": string,
-  "profile_num": number,
-  "grade": number,
-  "class_num": number,
-  "number": number
-}
+const mono = process.env.REACT_APP_MONO;
+const server = process.env.REACT_APP_SERVER;
+
 
 const InfoUpdate = ({ userData, isOpenModal, setIsOpenModal }: props): JSX.Element => {
   const [profileModal, setProfileModal] = useState<boolean>(false);
+  const [data, setData] = useState({
+    name: "noSwimming",
+    number: 1101
+  })
+  const [userProfileNum, setUserProfileNum] = useState<number>(0);
 
-  const [userDataUpdate, setUserDataUpdate] = useState<userType>({
-    "name": "noSwimming",
-    "profile_num": 0,
-    "grade": 0,
-    "class_num": 0,
-    "number": 0
-  });
+  const changeInputName = (e: any) => {
+    const { id, value } = e.target
+    setData({ ...data, [id]: value })
+  }
+
 
   const SubmitInfo = () => {
     setIsOpenModal(!isOpenModal);
+    let studentNumber = String(data.number).split("");
+
+    axios({
+      method: 'put',
+      url: `${mono}${server}/student`,
+      data: {
+        "name": data.name,
+        "profile_num": userProfileNum,
+        "grade": Number(studentNumber[0]),
+        "class_num": Number(studentNumber[1]),
+        "number": Number(studentNumber[2] + studentNumber[3])
+      }
+    })
+      .then(() => {
+        alert("정보를 수정했습니다.");
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
   };
 
+
+
   useEffect(() => {
-    setUserDataUpdate({
-      name: userData.name,
-      profile_num: userData.profile_num,
-      grade: userData.grade,
-      class_num: userData.class_num,
-      number: userData.number
-    })
+    setUserProfileNum(userData.profile_num)
+    setData({ ...data, name: userData.name })
   }, [])
 
-  const inputName = (e: any) => {
-    console.log(e.target)
-  }
+
 
   return (
     <>
       {
         profileModal ?
-          <SelectProfileModal profile={userDataUpdate} setProfile={setUserDataUpdate} setProfileModal={setProfileModal} /> :
+          <SelectProfileModal profile={userProfileNum} setProfile={setUserProfileNum} setProfileModal={setProfileModal} /> :
           <>
             <h1>내 정보 수정</h1>
             <UpdateContainer>
               <Profile>
-                <img src={profileImg[userDataUpdate.profile_num]} />
+                <img src={profileImg[userProfileNum]} />
                 <Button Light onClick={() => { setProfileModal(!profileModal) }}>프로필 이미지 선택</Button>
               </Profile>
-              <Input placeholder="이름" id="이름" />
-              <Input placeholder="학번" id="학번" />
+              <Input placeholder="이름" id="name" onChange={(e) => changeInputName(e)} value={data.name} />
+              <Input placeholder="학번" id="number" onChange={(e) => changeInputName(e)} value={String(data.number)} number min={1101} max={3420} />
             </UpdateContainer>
             <Submit>
               <SubmitButton Light onClick={() => { setIsOpenModal(!isOpenModal) }}>취소</SubmitButton>

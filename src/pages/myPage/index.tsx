@@ -25,7 +25,7 @@ const MyPage = (): JSX.Element => {
     "name": "noSwimming",
     "grade": 1,
     "class_num": 1,
-    "number": 24,
+    "number": 1,
     "count_reject_book": 0,
     "count_read_book": 0,
     "my_rank": 0,

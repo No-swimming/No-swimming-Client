@@ -4,18 +4,10 @@ import { profileImg } from "../../assets";
 import { Button } from "../../style/Button";
 import { Gray } from "../../style/color";
 
-type userType = {
-  "name": string,
-  "profile_num": number,
-  "grade": number,
-  "class_num": number,
-  "number": number
-}
-
 type Props = {
-  profile: userType;
+  profile: number;
   setProfileModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setProfile: React.Dispatch<React.SetStateAction<userType>>
+  setProfile: React.Dispatch<React.SetStateAction<number>>
 }
 const profileExplain = [
   { title: "기본", explain: "정석적인 기본 프로필" },
@@ -40,17 +32,17 @@ const SelectProfileModal = ({ profile, setProfileModal, setProfile }: Props): JS
     <>
       <h1>프로필 이미지 선택</h1>
       <Profile>
-        <img src={profileImg[profile.profile_num]} />
+        <img src={profileImg[profile]} />
         <Explain>
-          <p>{profileExplain[profile.profile_num].title}</p>
-          <p>{profileExplain[profile.profile_num].explain}</p>
+          <p>{profileExplain[profile].title}</p>
+          <p>{profileExplain[profile].explain}</p>
         </Explain>
       </Profile>
       <SelectProfileDiv>
         {
           profileImg.map((img, i) => {
             return (
-              <img src={img} onClick={() => { setProfile({ ...profile, profile_num: i }) }} />
+              <img src={img} onClick={() => { setProfile(i) }} />
             )
           })
         }
