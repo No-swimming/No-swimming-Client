@@ -20,51 +20,40 @@ const profileExplain = [
   { title: "다이아몬드", explain: "오랜 시간을 기다렸지" }
 ];
 
-const userData = {
-  "email": "coiwyoaj",
-  "name": "null",
-  "grade": 1,
-  "class_num": 1,
-  "number": 15,
-  "count_reject_book": 0,
-  "count_read_book": 0,
-  "my_rank": 4,
-  "profile_num": 2
-};
+type userType = {
+  "email": string,
+  "name": string,
+  "grade": number,
+  "class_num": number,
+  "number": number,
+  "count_reject_book": number,
+  "count_read_book": number,
+  "my_rank": number,
+  "profile_num": number
+}
 
-const Profile = (): JSX.Element => {
+const Profile = ({ user }: { user: userType }): JSX.Element => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const onClickToggleModal = () => {
     setIsOpenModal(!isOpenModal);
   };
 
-  const [updataData, setUpdateData] = useState({
-    profile_num: 1,
-    name: 1,
-    grader_num: 1111
-  })
-
-  const handleInputChange = (props: string) => (event: any) => {
-    setUpdateData({ ...updataData, [props]: event.target.value });
-  };
-
-
   return (
     <>
       {
         isOpenModal &&
-        <Modal onClickToggleModal={onClickToggleModal} display="flex" alignItems="center" flexDirection="column" gap="52px">
-          <InfoUpdate userData={userData} setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal} />
+        <Modal background onClickToggleModal={onClickToggleModal} display="flex" alignItems="center" flexDirection="column" gap="52px">
+          <InfoUpdate userData={user} setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal} />
         </Modal>
       }
       <Container>
         <div>
-          <img src={profileImg[userData.profile_num]} />
+          <img src={profileImg[user.profile_num]} />
           <div>
-            <Name><div><p>학생</p></div><h1>김이름</h1></Name>
-            <p>{userData.grade}학년 {userData.class_num}반 {userData.number}번</p>
-            <p>{userData.email}</p>
-            <p>{profileExplain[userData.profile_num].explain}</p>
+            <Name><div><p>학생</p></div><h1>{user.name}</h1></Name>
+            <p>{user.grade}학년 {user.class_num}반 {user.number}번</p>
+            <p>{user.email}</p>
+            <p>{profileExplain[user.profile_num].explain}</p>
           </div>
         </div>
         <Button Black onClick={onClickToggleModal}>내 정보 수정</Button>
