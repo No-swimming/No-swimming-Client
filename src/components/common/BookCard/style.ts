@@ -133,9 +133,26 @@ export const ButtonHorizionalLister = styled.div`
 
 `
 
-export const MainFlexContainer = styled.div`
+export const ModalMainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+`
+
+export const ModalDescContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+`
+
+export const ModalInnerContainer = styled.div`
+    color: ${Transparent.Black50};
+    &>p{
+        font-weight: 700;
+    }
+    &>div{
+        font-weight: 400;
+    }
 `

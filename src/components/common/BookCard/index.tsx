@@ -91,9 +91,31 @@ function CardMini({data}:cardType){
 
 function CardModal({data}:cardType){
     return(
-        <_.MainFlexContainer>
-            <_.BookCoverImg src={data.image}/>
-        </_.MainFlexContainer>
+        <_.ModalMainContainer>
+            <_.ModalDescContainer>
+                <_.BookCoverImg src={data.image}/>
+
+                <_.ModalInnerContainer>
+                    <p>ISBM</p>
+                    <div>{data.isbn}</div>
+                </_.ModalInnerContainer>
+
+                <_.ModalDescContainer>
+                    <p>저자</p>
+                    <div>{data.author}</div>
+                </_.ModalDescContainer>
+
+                <_.ModalInnerContainer>
+                    <p>출간일</p>
+                    <div>{data.pubdate}</div>
+                </_.ModalInnerContainer>
+
+                <_.ModalInnerContainer>
+                    <p>설명</p>
+                    <div>{data.description}</div>
+                </_.ModalInnerContainer>
+            </_.ModalDescContainer>
+        </_.ModalMainContainer>
     )
 }
 
