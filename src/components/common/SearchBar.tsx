@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Gray } from "../../style/color";
 import { Search32Regular } from "@fluentui/react-icons";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({ inputValue }: { inputValue?: string }): JSX.Element => {
+const SearchBar = (): JSX.Element => {
   const navigate = useNavigate();
   const [input, setInput] = useState<string>("");
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,12 +17,8 @@ const SearchBar = ({ inputValue }: { inputValue?: string }): JSX.Element => {
   }
   const searchBook = () => {
     if (input === "") alert("검색어를 입력해주세요");
-    else navigate(`/search/${input}/1`)
+    else navigate(`/search/${input}`)
   }
-
-  useEffect(() => {
-    if (inputValue) setInput(inputValue)
-  }, [])
   return (
     <Container>
       <Input placeholder="제목, 작가 검색" value={input} onChange={onChangeInput} onKeyDown={EnterEvent} />

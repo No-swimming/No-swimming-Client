@@ -5,7 +5,6 @@ import * as _ from './style';
 import { Button } from '../../../style/Button';
 import Modal from '../modal';
 import tinycolor from "tinycolor2";
-import { useNavigate } from 'react-router-dom';
 
 type cardType = {
     data: bookData;
@@ -21,27 +20,25 @@ type bookData = {
     description: string;
 }
 
-function CardLarge({ data }: cardType) {
-    const [bgcolor, setBgcolor] = useState<string>("#000000");
+function CardLarge({data}:cardType){
+    const [bgcolor,setBgcolor] = useState<string>("#000000");
     const [textColor, setTextColor] = useState<string>("#ffffff");
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const onClickToggleModal = useCallback(() => {
         setIsOpenModal(!isOpenModal);
     }, [isOpenModal]);
 
-    const navigate = useNavigate();
+    useEffect(()=>{
+        setTextColor(tinycolor(bgcolor).isLight() ? 'black' : 'white' );
+    },[bgcolor]);
 
-    useEffect(() => {
-        setTextColor(tinycolor(bgcolor).isLight() ? 'black' : 'white');
-    }, [bgcolor]);
-
-    function getprominent() {
+    function getprominent(){
         prominent(`${process.env.REACT_APP_MONO}${data.image}`,
-            { format: "hex", amount: 1 }
+            {format:"hex", amount:1}
         )
-            .then(color => setBgcolor(color as string));
+        .then(color => setBgcolor(color as string));
     };
-    return (
+    return(
         <>
             {isOpenModal &&
                 <Modal onClickToggleModal={onClickToggleModal}>
@@ -49,11 +46,11 @@ function CardLarge({ data }: cardType) {
                 </Modal>
             }
             <_.CardBg backgroud={bgcolor} text={textColor}>
-                <img src={data.image} onLoad={getprominent} onClick={() => setIsOpenModal(!isOpenModal)} alt='책 표지' />
+                <img src={data.image} onLoad={getprominent} onClick={()=>setIsOpenModal(!isOpenModal)} alt='책 표지' />
                 <div>
-                    <_.CardTitle>{data.title}</_.CardTitle>
-                    <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0, 4)}</_.CardTitle>
-                    <_.CardBody>{data.description}</_.CardBody>
+                    <_.CardTitle>{data.title.substring(0,23)}</_.CardTitle>
+                    <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
+                    <_.CardBody>{data.description.substring(0,65)+"..."}</_.CardBody>
                     <div>
                         <Button BlackTrans className='staticPadding'>
                             <Heart24Regular primaryFill="#ffffff" />
@@ -61,7 +58,7 @@ function CardLarge({ data }: cardType) {
                         <Button BlackTrans>
                             읽은 책에 추가
                         </Button>
-                        <Button BlackTrans onClick={() => navigate(`/write/${data.isbn}`)}>
+                        <Button BlackTrans>
                             독서록 작성
                         </Button>
                     </div>
@@ -71,31 +68,31 @@ function CardLarge({ data }: cardType) {
     )
 }
 
-function CardMini({ data }: cardType) {
-    const [bgcolor, setBgcolor] = useState("#000000");
+function CardMini({data}:cardType){
+    const [bgcolor,setBgcolor] = useState("#000000");
 
-    function getprominent() {
-        prominent(`http://monotype.iptime.org:10888/${data.image}`,
-            { format: "hex" }
+    function getprominent(){
+        prominent(`${process.env.REACT_APP_MONO}${data.image}`,
+            {format:"hex", amount: 1}
         )
-            .then(color => setBgcolor(color as string));
+        .then(color => setBgcolor(color as string));
     };
 
-    return (
+    return(
         <_.CardBgMini background={bgcolor}>
             <img src={data.image} onLoad={getprominent} alt='책 표지'/>
             <div>
                 <_.CardTitleMini>{data.title}</_.CardTitleMini>
-                <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0, 4)}</_.CardTitleMini>
+                <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitleMini>
             </div>
         </_.CardBgMini>
     )
 }
 
-function CardModal({ data }: cardType) {
-    return (
-        <_.BookCoverImg src={data.image} />
+function CardModal({data}:cardType){
+    return(
+        <_.BookCoverImg src={data.image}/>
     )
 }
 
-export { CardLarge, CardMini };
+export {CardLarge, CardMini};

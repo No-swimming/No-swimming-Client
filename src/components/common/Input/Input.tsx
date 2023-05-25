@@ -7,39 +7,36 @@ type propType = {
     placeholder: string;
     value?: string;
     isPassword?: boolean;
-    onChange?: (e: any) => void;
+    onChange?: ()=>void;
     id: string;
-    number?: boolean;
-    max?: number;
-    min?: number;
 }
 
 type passwordEyeType = {
-    click: () => void;
+    click: ()=>void;
     eyeOn?: boolean;
 }
 
-function Input({ placeholder, value, isPassword, onChange, id, number, max, min }: propType) {
+function Input({placeholder, value, isPassword, onChange, id}:propType){
     const [isVisable, setVisable] = useState(false);
-    function pwdVisableSwitch() {
+    function pwdVisableSwitch(){
         setVisable(!isVisable);
     }
 
-    return (
+    return(
         <div>
             <s.MainInputContainer htmlFor={id}>{placeholder}</s.MainInputContainer>
             <s.InputBox>
-                <input id={id} value={value} type={isPassword && isVisable === false ? "password" : number ? "number" : "text"} max={max ? max : ""} min={min ? min : ""} onChange={onChange} />
-                {isPassword ? <PasswordEye click={pwdVisableSwitch} eyeOn={isVisable} /> : null}
+                    <input id={id} value={value} type={isPassword && isVisable===false ? "password" : "text"} onChange={onChange} />
+                    {isPassword ? <PasswordEye click={pwdVisableSwitch} eyeOn={isVisable}/> : null}
             </s.InputBox>
         </div>
     )
 }
 
-function PasswordEye({ eyeOn, click }: passwordEyeType) {
-    return (
+function PasswordEye({eyeOn, click}:passwordEyeType){
+    return(
         <button onClick={click}>
-            {eyeOn ? <EyeOff24Regular color={Gray[50]} /> : <Eye24Regular color={Gray[50]} />}
+            {eyeOn ? <EyeOff24Regular color={Gray[50]}/> : <Eye24Regular color={Gray[50]} />}
         </button>
     )
 }
