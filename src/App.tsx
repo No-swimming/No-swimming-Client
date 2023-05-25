@@ -7,6 +7,7 @@ import MyPage from "./pages/myPage";
 import Search from "./pages/search";
 import BestSeller from "./pages/bestSeller";
 import StudentBest from "./pages/studentBest";
+import WrittenBook from "./pages/writtenBook";
 import Login from "./pages/login";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/best" element={<BestSeller />} />
           <Route path="/studentrank" element={<StudentBest />} />
+          <Route path="/written" element={<WrittenBook />} />
         </Route>
       </Routes>
     </BrowserRouter>
