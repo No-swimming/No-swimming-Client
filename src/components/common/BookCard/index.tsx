@@ -33,7 +33,7 @@ function CardLarge({data}:cardType){
     },[bgcolor]);
 
     function getprominent(){
-        prominent(`http://monotype.iptime.org:10888/${data.image}`,
+        prominent(`${process.env.REACT_APP_MONO}${data.image}`,
             {format:"hex", amount:1}
         )
         .then(color => setBgcolor(color as string));
@@ -72,7 +72,7 @@ function CardMini({data}:cardType){
     const [bgcolor,setBgcolor] = useState("#000000");
 
     function getprominent(){
-        prominent(`http://monotype.iptime.org:10888/${data.image}`,
+        prominent(`${process.env.REACT_APP_MONO}${data.image}`,
             {format:"hex"}
         )
         .then(color => setBgcolor(color as string));
@@ -80,7 +80,7 @@ function CardMini({data}:cardType){
 
     return(
         <_.CardBgMini background={bgcolor}>
-            <img src={data.image} onLoad={getprominent} />
+            <img src={data.image} onLoad={getprominent} alt='책 표지'/>
             <div>
                 <_.CardTitleMini>{data.title}</_.CardTitleMini>
                 <_.CardTitleMini className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitleMini>
