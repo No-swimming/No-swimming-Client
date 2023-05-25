@@ -49,7 +49,7 @@ const Label = styled.label`
     background: ${Gray.Elevated0};
 
     &.selected{
-        outline: 2px solid ${Basic.black0};
+        box-shadow: 0 0 0 2px ${Basic.black0} inset;
     }
 `
 
