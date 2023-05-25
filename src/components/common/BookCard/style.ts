@@ -24,7 +24,7 @@ export const CardBg = styled.div<{backgroud:string; text: string;}>`
         gap: 4px;
     }
     & > img{
-        width: 124px;
+        height: -webkit-fill-available;
         border-radius:4px;
     }
 `;
@@ -46,7 +46,7 @@ export const CardBgMini = styled.div<{background:string}>`
     color: white;
     font-weight: 700;
     & > img{
-        height: inherit;
+        height: -webkit-fill-available;
         border-radius: 4px;
     }
 `
