@@ -45,6 +45,7 @@ export const CardBgMini = styled.div<{background:string}>`
     background: ${props => props.background};
     color: white;
     font-weight: 700;
+    text-align: left;
     & > img{
         height: -webkit-fill-available;
         border-radius: 4px;
