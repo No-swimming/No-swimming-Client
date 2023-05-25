@@ -55,6 +55,10 @@ export const CardBgMini = styled.div<{background:string}>`
 export const CardTitle = styled.p`
     font-weight: 700;
     font-size: 24px;
+    width: 484px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     &.trans{
         color: inherit;
         opacity: 0.5;
@@ -80,6 +84,13 @@ export const CardBody = styled.p`
     font-weight: 400;
     font-size: 20px;
     opacity: 0.5;
+    display: -webkit-box;
+    height: 50px;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
 `;
 
 export const ButtonIcon = styled.button`
