@@ -2,56 +2,60 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Gray, Transparent } from "../../style/color";
 import { BookData } from "../../function/bookData";
-import SelectProfileModal from "./selectProfile";
-import Modal from "../common/modal";
+import axios from "axios";
+
+type BookType = {
+  title: string;
+  link: string;
+  image: string;
+  author: string;
+  discount: string;
+  publisher: string;
+  pubdate: string;
+  isbn: string;
+  description: string;
+};
+
+type axiosBookType = {
+  "book_id": number,
+  "book_num": number,
+  "record_reject": boolean,
+  "is_rejected": boolean
+}
+
+const mono = process.env.REACT_APP_MONO;
+const server = process.env.REACT_APP_SERVER;
 
 const BookList = (): JSX.Element => {
-  const [book, setBook] = useState({
-    "journal_list": [
-      {
-        "book_id": 1,
-        "book_num": 9781408856772,
-        "record_reject": false,
-        "is_rejected": false
-      }, {
-        "book_id": 1,
-        "book_num": 9788983927729,
-        "record_reject": true,
-        "is_rejected": false
-      }, {
-        "book_id": 1,
-        "book_num": 9788983927651,
-        "record_reject": false,
-        "is_rejected": false
-      }, {
-        "book_id": 1,
-        "book_num": 9788983927651,
-        "record_reject": false,
-        "is_rejected": true
-      }, {
-        "book_id": 1,
-        "book_num": 9781408856772,
-        "record_reject": false,
-        "is_rejected": false
-      }
-    ]
-  })
+  const [book, setBook] = useState<axiosBookType[]>([])
+
+  // useEffect(() => {
+  //   axios({
+  //     method: 'get',
+  //     url: `${mono}${server}/journal/student`,
+  //   })
+  //     .then(function (response) {
+  //       setBook(response.data.journal_list);
+  //     })
+  //     .catch(function (error) {
+  //       console.log("학생 책 목록",error)
+  //     });
+  // })
 
   return (
     <>
       <Container>
         <div>
           <h1>내 독서록</h1>
-          <button>모두 보기</button>
+          <button>{book[0] ? "모두 보기" : "없음"}</button>
         </div>
         {
-          book.journal_list.slice(0, 4).map((data) => {
-            const info = BookData(data.book_num);
+          book.slice(0, 4).map((data) => {
             return (
               <BookContainer>
                 <div>
                   <Title></Title>
-                  <BookInfo>{info.title} - {info.author}</BookInfo>
+                  <BookInfo> - </BookInfo>
                 </div>
                 <State>
                   {
@@ -74,6 +78,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 12px;
   >div{
+    width:calc(70vw - 180px);
     display: flex;
     justify-content: space-between;
     >button{

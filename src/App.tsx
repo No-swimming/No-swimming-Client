@@ -6,6 +6,8 @@ import NotFound from "./pages/notFound";
 import MyPage from "./pages/myPage";
 import Search from "./pages/search";
 import BestSeller from "./pages/bestSeller";
+import StudentBest from "./pages/studentBest";
+import Login from "./pages/login";
 
 function App() {
   return (
@@ -15,10 +17,12 @@ function App() {
           {/* 헤더 적용할 페이지는 여기에  */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
+          <Route path="login" element={<Login />} />
           <Route path="/write/:isbn" element={<Write />} />
           <Route path="/search/:book/:start" element={<Search />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/best" element={<BestSeller />} />
+          <Route path="/studentrank" element={<StudentBest />} />
         </Route>
       </Routes>
     </BrowserRouter>
