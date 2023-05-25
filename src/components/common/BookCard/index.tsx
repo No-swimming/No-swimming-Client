@@ -52,7 +52,7 @@ function CardLarge({data}:cardType){
                     <_.CardTitle className='trans'>{data.author} | {data.pubdate.substring(0,4)}</_.CardTitle>
                     <_.CardBody>{data.description.substring(0,65)+"..."}</_.CardBody>
                     <div>
-                        <Button BlackTrans className='icon'>
+                        <Button BlackTrans className='staticPadding'>
                             <Heart24Regular primaryFill="#ffffff" />
                         </Button>
                         <Button BlackTrans>

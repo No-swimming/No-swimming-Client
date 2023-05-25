@@ -64,4 +64,9 @@ export const Button = styled.button`
             background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);;
         `
     }
+
+    &.staticPadding{
+        padding: 8px;
+        height: 40px;
+    }
 `
