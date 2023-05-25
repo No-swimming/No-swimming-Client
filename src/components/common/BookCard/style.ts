@@ -132,3 +132,10 @@ export const InfoCardInnerContainer = styled.div`
 export const ButtonHorizionalLister = styled.div`
 
 `
+
+export const MainFlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+`

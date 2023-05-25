@@ -91,7 +91,9 @@ function CardMini({data}:cardType){
 
 function CardModal({data}:cardType){
     return(
-        <_.BookCoverImg src={data.image}/>
+        <_.MainFlexContainer>
+            <_.BookCoverImg src={data.image}/>
+        </_.MainFlexContainer>
     )
 }
 
