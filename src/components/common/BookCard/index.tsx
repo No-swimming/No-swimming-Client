@@ -73,7 +73,7 @@ function CardMini({data}:cardType){
 
     function getprominent(){
         prominent(`${process.env.REACT_APP_MONO}${data.image}`,
-            {format:"hex"}
+            {format:"hex", amount: 1}
         )
         .then(color => setBgcolor(color as string));
     };
