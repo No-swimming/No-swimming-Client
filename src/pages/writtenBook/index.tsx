@@ -16,57 +16,30 @@ type bookType = {
 }
 
 const WrittenBook = () => {
-  const [bookData, setBookData] = useState<bookType[]>([{
-    "book_id": 1,
-    "book_num": 234,
-    "title": "유찬홍",
-    "record_reject": false,
-    "reading_journal_type": "SAVE",
-    "reading_journal_id": 2
-  }, {
-    "book_id": 1,
-    "book_num": 234,
-    "title": "유찬홍",
-    "record_reject": false,
-    "reading_journal_type": "SAVE",
-    "reading_journal_id": 2
-  }, {
-    "book_id": 1,
-    "book_num": 234,
-    "title": "유찬홍",
-    "record_reject": false,
-    "reading_journal_type": "SAVE",
-    "reading_journal_id": 2
-  }, {
-    "book_id": 1,
-    "book_num": 234,
-    "title": "유찬홍",
-    "record_reject": false,
-    "reading_journal_type": "SAVE",
-    "reading_journal_id": 2
-  }]);
+  const [bookData, setBookData] = useState<bookType[]>([]);
 
-  // useEffect(() => {
-  //   axios({
-  //     method: 'get',
-  //     url: `${mono}${server}/journal/list`,
-  //     headers: {
-  //       "Authorization": `Bearer ${localStorage.getItem("access_token")}`
-  //     }
-  //   })
-  //     .then(function (res) {
-  //       console.log(res)
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error)
-  //     });
-  // }, [])
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: `${mono}${server}/journal/list`,
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+      }
+    })
+      .then(function (res) {
+        setBookData(res.data.journal_list)
+      })
+      .catch(function (error) {
+        console.error(error)
+      });
+  }, []);
+
   return (
     <_.FlexContainer>
       <_.Container>
         <_.Title>
           <h1>작성한 독서록</h1>
-          <p>4건</p>
+          <p>{bookData.length}건</p>
         </_.Title>
         <Books bookData={bookData}/>
       </_.Container>

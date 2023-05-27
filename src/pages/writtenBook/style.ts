@@ -13,6 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
+  margin-top: 45px;
   display: flex;
   gap: 8px;
   > h1 {

@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 type bookType = {
   "book_id": number,
   "book_num": number,
@@ -13,10 +15,18 @@ type Props = {
 
 const Books = ({ bookData }: Props) => {
   return (
-    <>{bookData.map(d=>{
-      return <p>{d.title}</p>
-    })}</>
+    <Container>
+      {bookData.map(d => {
+        return <p>{d.title}</p>
+      })}
+    </Container>
   )
 }
 
 export default Books;
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+`
