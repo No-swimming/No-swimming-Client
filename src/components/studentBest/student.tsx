@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { profileImg } from "../../assets";
 type StudentType = {
   "name": string,
   "grade": number,
@@ -32,7 +33,7 @@ const Student = () => {
           return (
             <StudentContainer>
               <Title>{i + 1}위</Title>
-              <ProfileImg />
+              <ProfileImg src={profileImg[d.journal_count]}/>
               <Content>
                 <p>{d.name}</p>
                 <p>{d.journal_count}권</p>
