@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { Button } from "../../style/Button";
 
-const Submit = (): JSX.Element => {
+type Props = {
+  onClickSubmit: () => void;
+  onClickNoSubmit: () => void;
+}
+const Submit = ({ onClickSubmit, onClickNoSubmit }: Props): JSX.Element => {
   return (
     <Container>
-      <Button Black>제출</Button>
+      <Button Black onClick={onClickSubmit}>제출</Button>
       <Button Light>임시 저장</Button>
 
       {/* <Button Light>맞춤법 검사</Button> */}
